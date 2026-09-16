@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <!-- Andrew extras for Arctic Fuse 3 (Andrew) -->
+
+    <variable name="gradientcolor">
+        <value condition="!String.IsEmpty(Skin.String(gradientcolor))">$INFO[Skin.String(gradientcolor)]</value>
+        <value condition="!String.IsEmpty(Skin.String(Andrew.GradientColor))">$INFO[Skin.String(Andrew.GradientColor)]</value>
+        <value>$VAR[ColorHighlight]</value>
+    </variable>
+
+    <include name="Andrew_Extras_PickItems_Path">
+        <param name="path">plugin://plugin.video.themoviedb.helper.andrew/?info=dir_custom_node</param>
+    </include>
+
+    <include name="Andrew_Extras_MotionBackground">
+        <visible>Skin.HasSetting(TMDbHelper.EnableMotion)</visible>
+        <texture>$INFO[Window(Home).Property(Motion.Current)]</texture>
+        <colordiffuse>$VAR[gradientcolor]</colordiffuse>
+    </include>
+</includes>
