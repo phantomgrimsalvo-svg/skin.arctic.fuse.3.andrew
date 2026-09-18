@@ -2443,3 +2443,58 @@ msgstr ""
 msgctxt "#31625"
 msgid "High"
 msgstr ""
+
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31626"
+msgid "Andrew extras"
+msgstr ""
+
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31627"
+msgid "Dual highlight colours"
+msgstr ""
+
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31628"
+msgid "Colour A"
+msgstr ""
+
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31629"
+msgid "Colour B"
+msgstr ""
+
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31630"
+msgid "Fanart extras"
+msgstr ""
+
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31631"
+msgid "Extra fanart"
+msgstr ""
+
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31632"
+msgid "Needs TMDb Helper (Andrew)"
+msgstr ""
+
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31633"
+msgid "Motion fanart"
+msgstr ""
+
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31634"
+msgid "Letterbox portraits"
+msgstr ""
+
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31635"
+msgid "Zoom portraits"
+msgstr ""
+
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31636"
+msgid "Focus portraits"
+msgstr ""

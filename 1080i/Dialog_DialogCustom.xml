@@ -413,7 +413,7 @@
             <param name="control">radiobutton</param>
             <param name="istext">true</param>
             <selected>$EXP[Exp_TMDbHelper_IsMotion]</selected>
-            <param name="label">Andrew extras · motion fanart</param>
+            <param name="label">$LOCALIZE[31633]</param>
             <param name="label2">Motion.Current</param>
             <param name="has_label2">true</param>
             <onclick>Skin.ToggleSetting(TMDbHelper.EnableMotion)</onclick>

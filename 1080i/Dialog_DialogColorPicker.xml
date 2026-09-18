@@ -93,7 +93,9 @@
                     <param name="icon">special://skin/extras/icons/layer-group.png</param>
                     <description>Default Setting Button</description>
                     <label>$VAR[Label_ColorPicker_Type]</label>
-                    <onclick condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Highlight)">SetProperty(ColorPicker_Type,Indicator,Home)</onclick>
+                    <onclick condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Highlight) + Skin.HasSetting(Andrew.DualHighlight)">SetProperty(ColorPicker_Type,Gradient,Home)</onclick>
+                    <onclick condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Highlight) + !Skin.HasSetting(Andrew.DualHighlight)">SetProperty(ColorPicker_Type,Indicator,Home)</onclick>
+                    <onclick condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Gradient)">SetProperty(ColorPicker_Type,Indicator,Home)</onclick>
                     <onclick condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Indicator)">SetProperty(ColorPicker_Type,series_premiere,Home)</onclick>
                     <onclick condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),series_premiere)">SetProperty(ColorPicker_Type,season_premiere,Home)</onclick>
                     <onclick condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),season_premiere)">SetProperty(ColorPicker_Type,mid_season_premiere,Home)</onclick>
@@ -249,6 +251,16 @@
                         </include>
                     </control>
                     <control type="group">
+                        <centerleft>50%</centerleft>
+                        <width>45%</width>
+                        <visible>Skin.HasSetting(Andrew.DualHighlight)</visible>
+                        <include content="Object_ColorSwatch">
+                            <param name="label">$LOCALIZE[31232]</param>
+                            <param name="colordiffuse">$VAR[ColorGradient]</param>
+                            <param name="condition">String.IsEqual(Window(Home).Property(ColorPicker_Type),Gradient)</param>
+                        </include>
+                    </control>
+                    <control type="group">
                         <right>0</right>
                         <width>45%</width>
                         <include content="Object_ColorSwatch">
@@ -395,6 +407,7 @@
 
     <include name="DialogColorPicker_TextureMaker_Swatches_Panel_Action">
         <onclick>$VAR[Action_Update_Color]</onclick>
+        <onclick condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Gradient)">Skin.SetString(Andrew.GradientColor,$VAR[Color_PC_to_Hex])</onclick>
         <onclick>SetFocus(9000)</onclick>
         <content>plugin://script.texturemaker/</content>
     </include>

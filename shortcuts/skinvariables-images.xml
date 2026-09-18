@@ -62,6 +62,8 @@
         <value condition="String.IsEqual({listitem}.DBType,studio) | String.IsEqual({listitem}.Property(DBType),studio)">$INFO[{listitem}.Label,resource://resource.images.studios.white/,.png]</value>
         <value condition="String.IsEqual({listitem}.DBType,country) | String.IsEqual({listitem}.Property(DBType),country)">$INFO[{listitem}.Label,resource://resource.images.moviecountryicons.maps/,.png]</value>
         <value condition="String.IsEqual({listitem}.DBType,genre) | String.IsEqual({listitem}.Property(DBType),genre)">$INFO[{listitem}.Label,genres/,.png]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),logo) + !String.IsEmpty({listitem}.Art(clearlogo))">$INFO[{listitem}.Art(clearlogo)]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),logo) + !String.IsEmpty({listitem}.Art(thumb))">$INFO[{listitem}.Art(thumb)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(discart))">$INFO[{listitem}.Art(discart)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(album.discart))">$INFO[{listitem}.Art(album.discart)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(thumb)) + !String.StartsWith({listitem}.Art(thumb),Default)">$INFO[{listitem}.Art(thumb)]</value>
@@ -74,6 +76,8 @@
 
     <variable name="Image_Square" containers="450" null_id="true">
         <value condition="!String.IsEmpty({listitem}.Property(override_square))">$INFO[{listitem}.Property(override_square)]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),logo) + !String.IsEmpty({listitem}.Art(clearlogo))">$INFO[{listitem}.Art(clearlogo)]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),logo) + !String.IsEmpty({listitem}.Art(thumb))">$INFO[{listitem}.Art(thumb)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(poster))">$INFO[{listitem}.Art(poster)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(season.poster))">$INFO[{listitem}.Art(season.poster)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(tvshow.poster))">$INFO[{listitem}.Art(tvshow.poster)]</value>
@@ -83,6 +87,9 @@
 
     <variable name="Image_Poster" containers="450" null_id="true">
         <value condition="!String.IsEmpty({listitem}.Property(override_poster))">$INFO[{listitem}.Property(override_poster)]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),logo) + !String.IsEmpty({listitem}.Art(clearlogo))">$INFO[{listitem}.Art(clearlogo)]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),logo) + !String.IsEmpty({listitem}.Art(thumb))">$INFO[{listitem}.Art(thumb)]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),logo) + !String.IsEmpty({listitem}.Icon) + !String.StartsWith({listitem}.Icon,Default)">$INFO[{listitem}.Icon]</value>
         <value condition="!String.IsEmpty({listitem}.Art(poster))">$INFO[{listitem}.Art(poster)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(season.poster))">$INFO[{listitem}.Art(season.poster)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(tvshow.poster))">$INFO[{listitem}.Art(tvshow.poster)]</value>
@@ -107,6 +114,11 @@
     <variable name="Image_Landscape" containers="450" null_id="true">
         <value condition="String.IsEqual({listitem}.Property(tmdb_type),person)" />
         <value condition="!String.IsEmpty({listitem}.Property(override_landscape))">$INFO[{listitem}.Property(override_landscape)]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),logo) + !String.IsEmpty({listitem}.Art(banner))">$INFO[{listitem}.Art(banner)]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),logo) + !String.IsEmpty({listitem}.Art(clearlogo))">$INFO[{listitem}.Art(clearlogo)]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),logo) + !String.IsEmpty({listitem}.Art(thumb))">$INFO[{listitem}.Art(thumb)]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),portrait) + !String.IsEmpty({listitem}.Art(thumb))">$INFO[{listitem}.Art(thumb)]</value>
+        <value condition="String.IsEqual({listitem}.Property(Andrew.ArtType),video) + !String.IsEmpty({listitem}.Art(thumb))">$INFO[{listitem}.Art(thumb)]</value>
         <value condition="[String.IsEqual({listitem}.DBType,episode) | String.IsEqual({listitem}.DBType,video) | String.IsEqual({listitem}.DBType,musicvideo)] + !String.IsEmpty({listitem}.Art(thumb)) + !String.IsEqual({listitem}.Icon,{listitem}.Art(fanart)) + !String.IsEqual({listitem}.Icon,OverlaySpoiler.png) + !String.IsEqual({listitem}.Art(thumb),{listitem}.Art(poster)) + !String.IsEqual({listitem}.Art(thumb),{listitem}.Art(tvshow.poster))">$INFO[{listitem}.Art(thumb)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[{listitem}.Art(landscape)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(season.landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[{listitem}.Art(season.landscape)]</value>

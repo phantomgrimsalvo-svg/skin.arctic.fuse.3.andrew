@@ -262,8 +262,29 @@
         <value>$INFO[Window(Home).Property(TMDbHelper.ListItem.Current.BlurImage)]</value>
     </variable>
 
+    <variable name="Image_Foreground_Andrew">
+        <value condition="String.IsEqual(ListItem.Property(Andrew.PortraitFanart),true) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="String.IsEqual(Container.ListItem.Property(Andrew.PortraitFanart),true) + !String.IsEmpty(Container.ListItem.Art(thumb))">$INFO[Container.ListItem.Art(thumb)]</value>
+        <value condition="String.IsEqual(ListItem.Property(Andrew.ArtType),logo) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="String.IsEqual(Container.ListItem.Property(Andrew.ArtType),logo) + !String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
+        <value condition="String.IsEqual(ListItem.Property(Andrew.ArtType),portrait) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="String.IsEqual(Container.ListItem.Property(Andrew.ArtType),portrait) + !String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(Andrew.ArtType)) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Property(Andrew.ArtType)) + !String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(Andrew.ArtType)) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Property(Andrew.ArtType)) + !String.IsEmpty(Container.ListItem.Art(thumb))">$INFO[Container.ListItem.Art(thumb)]</value>
+    </variable>
+
     <variable name="Image_Foreground_NoService">
+        <value condition="Skin.HasSetting(TMDbHelper.EnableMotion) + !String.IsEmpty(Window(Home).Property(Motion.Current))">$INFO[Window(Home).Property(Motion.Current)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(Andrew.ArtType)) | !String.IsEmpty(Container.ListItem.Property(Andrew.ArtType))">$VAR[Image_Foreground_Andrew]</value>
+        <value condition="Skin.HasSetting(Background.ExtraFanart) + !String.IsEmpty(Container.ListItem.Art(fanart1))">$INFO[Container.ListItem.Art(fanart1)]</value>
+        <value condition="Skin.HasSetting(Background.ExtraFanart) + !String.IsEmpty(ListItem.Art(fanart1))">$INFO[ListItem.Art(fanart1)]</value>
+        <value condition="Skin.HasSetting(Background.ExtraFanart) + !String.IsEmpty(Container.ListItem.Art(extrafanart))">$INFO[Container.ListItem.Art(extrafanart)]</value>
+        <value condition="String.IsEqual(ListItem.Property(Andrew.PortraitFanart),true) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="String.IsEqual(Container.ListItem.Property(Andrew.PortraitFanart),true) + !String.IsEmpty(Container.ListItem.Art(thumb))">$INFO[Container.ListItem.Art(thumb)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301)">$INFO[Container(301).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),501)">$INFO[Container(501).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),502)">$INFO[Container(502).ListItem.Art(fanart)]</value>
@@ -317,11 +338,31 @@
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),550)">$INFO[Container(550).ListItem.Art(fanart)]</value>
     </variable>
 
+    <variable name="Image_Foreground_Extra">
+        <value condition="Skin.HasSetting(TMDbHelper.EnableMotion) + !String.IsEmpty(Window(Home).Property(Motion.Current))">$INFO[Window(Home).Property(Motion.Current)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(Andrew.ArtType)) | !String.IsEmpty(Container.ListItem.Property(Andrew.ArtType))">$VAR[Image_Foreground_Andrew]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(fanart1))">$INFO[Container.ListItem.Art(fanart1)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(fanart1))">$INFO[ListItem.Art(fanart1)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(extrafanart))">$INFO[Container.ListItem.Art(extrafanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(extrafanart))">$INFO[ListItem.Art(extrafanart)]</value>
+        <value condition="String.IsEqual(ListItem.Property(Andrew.PortraitFanart),true) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="String.IsEqual(Container.ListItem.Property(Andrew.PortraitFanart),true) + !String.IsEmpty(Container.ListItem.Art(thumb))">$INFO[Container.ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(thumb))">$INFO[Container.ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value>$VAR[Image_Foreground_NoService]</value>
+    </variable>
+
     <variable name="Image_Foreground">
+        <value condition="Skin.HasSetting(TMDbHelper.EnableMotion) + !String.IsEmpty(Window(Home).Property(Motion.Current))">$INFO[Window(Home).Property(Motion.Current)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(Andrew.ArtType)) | !String.IsEmpty(Container.ListItem.Property(Andrew.ArtType))">$VAR[Image_Foreground_Andrew]</value>
+        <value condition="Skin.HasSetting(Background.ExtraFanart)">$VAR[Image_Foreground_Extra]</value>
         <value condition="$EXP[Exp_BackgroundArtwork_IsSimple]">$INFO[Window(Home).Property(TMDbHelper.SimpleBackground.BlurImage.Original)]</value>
         <value condition="!$EXP[Exp_TMDbHelper_IsBlur]">$VAR[Image_Foreground_NoService]</value>
         <value condition="!String.IsEmpty(Window.Property(TMDbHelper.ListItem.BlurImage.Original))">$INFO[Window.Property(TMDbHelper.ListItem.BlurImage.Original)]</value>
-        <value>$INFO[Window(Home).Property(TMDbHelper.ListItem.Current.BlurImage.Original)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Current.BlurImage.Original))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Current.BlurImage.Original)]</value>
+        <value>$VAR[Image_Foreground_NoService]</value>
     </variable>
 
     <variable name="Image_OtherIcon">

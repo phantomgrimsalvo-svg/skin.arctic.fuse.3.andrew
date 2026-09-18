@@ -31,7 +31,7 @@
                 <top>0</top>
                 <height>$PARAM[flixart_size_h]</height>
                 <width>$PARAM[flixart_size_w]</width>
-                <aspectratio scalediffuse="false" align="$PARAM[align]" aligny="$PARAM[aligny]">$PARAM[aspectratio]</aspectratio>
+                <aspectratio scalediffuse="false" align="center" aligny="$VAR[AlignY_BackgroundArt]">$VAR[Aspect_BackgroundArt]</aspectratio>
                 <texture background="true" diffuse="$PARAM[diffuse]">$VAR[Image_Foreground]</texture>
                 <animation effect="fade" start="100" end="0" reversible="false" time="300" condition="$EXP[Exp_BackgroundArtwork_IsHidden]">Conditional</animation>
                 <animation effect="fade" start="0" end="100" reversible="false" delay="300" time="background_fadetime" condition="!$EXP[Exp_BackgroundArtwork_IsHidden]">Conditional</animation>
@@ -199,6 +199,8 @@
             <include content="Background_Artwork">
                 <param name="fadetime">0</param>
             </include>
+            <include>Andrew_Extras_MotionBackground</include>
+            <include>Andrew_Extras_MultiFanartBackground</include>
         </control>
     </include>
 
@@ -208,6 +210,8 @@
             <animation effect="fade" start="100" end="0" time="background_fadetime">Hidden</animation>
             <include>Background_Blur</include>
             <include>Background_Artwork</include>
+            <include>Andrew_Extras_MotionBackground</include>
+            <include>Andrew_Extras_MultiFanartBackground</include>
         </control>
     </include>
 

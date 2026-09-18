@@ -2,19 +2,146 @@
 <includes>
     <!-- Andrew extras for Arctic Fuse 3 (Andrew) -->
 
+    <expression name="Exp_Andrew_DualHighlight">[Skin.HasSetting(Andrew.DualHighlight)]</expression>
+    <expression name="Exp_Andrew_HelperInstalled">[System.HasAddon(plugin.video.themoviedb.helper.andrew)]</expression>
+    <expression name="Exp_Andrew_HelperReady">[System.HasAddon(plugin.video.themoviedb.helper.andrew) + System.AddonIsEnabled(plugin.video.themoviedb.helper.andrew)]</expression>
+    <expression name="Exp_Andrew_PortraitLetterbox">[String.IsEqual(ListItem.Property(Andrew.ArtAspect),portrait) + !Skin.String(Andrew.PortraitFrame,zoom) + !Skin.String(Andrew.PortraitFrame,focus)]</expression>
+    <expression name="Exp_Andrew_LogoArt">[String.IsEqual(ListItem.Property(Andrew.ArtType),logo) | String.IsEqual(ListItem.Property(Andrew.ArtType),banner)]</expression>
+    <expression name="Exp_Andrew_KeepAspect">[$EXP[Exp_Andrew_LogoArt] | $EXP[Exp_Andrew_PortraitLetterbox]]</expression>
+
     <variable name="gradientcolor">
         <value condition="!String.IsEmpty(Skin.String(gradientcolor))">$INFO[Skin.String(gradientcolor)]</value>
         <value condition="!String.IsEmpty(Skin.String(Andrew.GradientColor))">$INFO[Skin.String(Andrew.GradientColor)]</value>
         <value>$VAR[ColorHighlight]</value>
     </variable>
 
+    <variable name="ColorHighlightB">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">$VAR[ColorGradient]</value>
+        <value>$VAR[ColorHighlight]</value>
+    </variable>
+
+    <variable name="Texture_Menu_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-v.png</value>
+        <value>common/menu.png</value>
+    </variable>
+    <variable name="Texture_Main_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-v.png</value>
+        <value>common/main.png</value>
+    </variable>
+    <variable name="Texture_Box_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-box.png</value>
+        <value>common/box.png</value>
+    </variable>
+    <variable name="Texture_Underline_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-v.png</value>
+        <value>common/underline.png</value>
+    </variable>
+    <variable name="Texture_Circle_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-v.png</value>
+        <value>common/circle.png</value>
+    </variable>
+    <variable name="Texture_MenuMain_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-v.png</value>
+        <value>common/menumain.png</value>
+    </variable>
+    <variable name="Texture_ScrollH_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-v.png</value>
+        <value>common/scrollh.png</value>
+    </variable>
+    <variable name="Texture_ScrollV_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-v.png</value>
+        <value>common/scrollv.png</value>
+    </variable>
+    <variable name="Texture_SelectBox_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-box.png</value>
+        <value>common/selectbox_thin.png</value>
+    </variable>
+    <variable name="Texture_White_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-v.png</value>
+        <value>common/white.png</value>
+    </variable>
+    <variable name="Texture_CircleButton_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-v.png</value>
+        <value>common/circlebutton.png</value>
+    </variable>
+    <variable name="Texture_MenuX_File">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">common/gradient-v.png</value>
+        <value>common/menu_x.png</value>
+    </variable>
+
+    <variable name="Aspect_BackgroundArt">
+        <value condition="String.IsEqual(ListItem.Property(Andrew.ArtType),logo) | String.IsEqual(Container.ListItem.Property(Andrew.ArtType),logo)">keep</value>
+        <value condition="String.IsEqual(ListItem.Property(Andrew.ArtType),banner) | String.IsEqual(Container.ListItem.Property(Andrew.ArtType),banner)">keep</value>
+        <value condition="[String.IsEqual(ListItem.Property(Andrew.ArtAspect),portrait) | String.IsEqual(Container.ListItem.Property(Andrew.ArtAspect),portrait)] + Skin.String(Andrew.PortraitFrame,zoom)">scale</value>
+        <value condition="[String.IsEqual(ListItem.Property(Andrew.ArtAspect),portrait) | String.IsEqual(Container.ListItem.Property(Andrew.ArtAspect),portrait)] + Skin.String(Andrew.PortraitFrame,focus)">scale</value>
+        <value condition="String.IsEqual(ListItem.Property(Andrew.ArtAspect),portrait) | String.IsEqual(Container.ListItem.Property(Andrew.ArtAspect),portrait)">keep</value>
+        <value condition="[String.IsEqual(ListItem.Property(Andrew.PortraitFanart),true) | String.IsEqual(Container.ListItem.Property(Andrew.PortraitFanart),true)] + !Skin.String(Andrew.PortraitFrame,zoom) + !Skin.String(Andrew.PortraitFrame,focus)">keep</value>
+        <value>scale</value>
+    </variable>
+    <variable name="AlignY_BackgroundArt">
+        <value condition="Skin.String(Andrew.PortraitFrame,focus)">top</value>
+        <value>center</value>
+    </variable>
+    <variable name="AlignY_ListItemArt">
+        <value condition="Skin.String(Andrew.PortraitFrame,focus)">top</value>
+        <value>center</value>
+    </variable>
+
+    <variable name="Label_Andrew_DualHighlight">
+        <value condition="Skin.HasSetting(Andrew.DualHighlight)">$LOCALIZE[16041]</value>
+        <value>$LOCALIZE[16042]</value>
+    </variable>
+    <variable name="Label_Andrew_FanartExtras">
+        <value condition="!$EXP[Exp_Andrew_HelperReady]">$LOCALIZE[31632]</value>
+        <value condition="Skin.HasSetting(Background.ExtraFanart)">$LOCALIZE[16041]</value>
+        <value>$LOCALIZE[16042]</value>
+    </variable>
+    <variable name="Label_Andrew_MotionFanart">
+        <value condition="!$EXP[Exp_Andrew_HelperReady]">$LOCALIZE[31632]</value>
+        <value condition="Skin.HasSetting(TMDbHelper.EnableMotion)">$LOCALIZE[16041]</value>
+        <value>$LOCALIZE[16042]</value>
+    </variable>
+    <variable name="Label_Andrew_PortraitFrame">
+        <value condition="Skin.String(Andrew.PortraitFrame,zoom)">$LOCALIZE[31635]</value>
+        <value condition="Skin.String(Andrew.PortraitFrame,focus)">$LOCALIZE[31636]</value>
+        <value>$LOCALIZE[31634]</value>
+    </variable>
+    <variable name="Label_Andrew_ColorA">
+        <value>$VAR[ColorHighlight]</value>
+    </variable>
+    <variable name="Label_Andrew_ColorB">
+        <value>$VAR[ColorGradient]</value>
+    </variable>
+
     <include name="Andrew_Extras_PickItems_Path">
         <param name="path">plugin://plugin.video.themoviedb.helper.andrew/?info=dir_custom_node</param>
     </include>
 
+    <!-- Color B wash over Color A fill: visible A→B blend on image chrome -->
+    <include name="Andrew_DualHighlight_Overlay">
+        <control type="image">
+            <visible>Skin.HasSetting(Andrew.DualHighlight)</visible>
+            <texture colordiffuse="$VAR[ColorGradient]" border="40">common/gradient-v.png</texture>
+        </control>
+    </include>
+
     <include name="Andrew_Extras_MotionBackground">
-        <visible>Skin.HasSetting(TMDbHelper.EnableMotion)</visible>
-        <texture>$INFO[Window(Home).Property(Motion.Current)]</texture>
-        <colordiffuse>$VAR[gradientcolor]</colordiffuse>
+        <control type="image">
+            <visible>Skin.HasSetting(TMDbHelper.EnableMotion) + $EXP[Exp_Andrew_HelperReady] + !String.IsEmpty(Window(Home).Property(Motion.Current))</visible>
+            <aspectratio align="center" aligny="$VAR[AlignY_BackgroundArt]">$VAR[Aspect_BackgroundArt]</aspectratio>
+            <fadetime>background_fadetime</fadetime>
+            <texture background="true">$INFO[Window(Home).Property(Motion.Current)]</texture>
+            <include>Background_NotVideo</include>
+        </control>
+    </include>
+
+    <include name="Andrew_Extras_MultiFanartBackground">
+        <control type="image">
+            <visible>Skin.HasSetting(Background.ExtraFanart) + !Skin.HasSetting(TMDbHelper.EnableMotion)</visible>
+            <aspectratio align="center" aligny="$VAR[AlignY_BackgroundArt]">$VAR[Aspect_BackgroundArt]</aspectratio>
+            <fadetime>background_fadetime</fadetime>
+            <texture background="true">$VAR[Image_Foreground_Extra]</texture>
+            <include>Background_NotVideo</include>
+        </control>
     </include>
 </includes>

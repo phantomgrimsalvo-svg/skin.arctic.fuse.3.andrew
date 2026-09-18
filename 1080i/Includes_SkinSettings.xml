@@ -139,6 +139,46 @@
             <onclick>SetProperty(CustomDialogSettingsItems,DialogCustom_Settings_Items_ColourHighlights,Home)</onclick>
             <onclick>ActivateWindow(1118)</onclick>
         </include>
+        <include content="Settings_Label" description="Andrew extras colours">
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">030</param>
+            <label>$LOCALIZE[31626]</label>
+        </include>
+        <include content="Settings_Button" description="Dual highlight colours">
+            <param name="dialog">false</param>
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">031</param>
+            <param name="control">radiobutton</param>
+            <label>$LOCALIZE[31627]</label>
+            <label2>$VAR[Label_Andrew_DualHighlight]</label2>
+            <onclick>Skin.ToggleSetting(Andrew.DualHighlight)</onclick>
+            <onclick condition="Skin.HasSetting(Andrew.DualHighlight) + String.IsEmpty(Skin.String(gradientcolor))">Skin.SetString(gradientcolor,ff00b8d4)</onclick>
+            <selected>Skin.HasSetting(Andrew.DualHighlight)</selected>
+        </include>
+        <include content="Settings_Button" description="Colour A highlight">
+            <param name="dialog">false</param>
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">032</param>
+            <label> - $LOCALIZE[31628]</label>
+            <label2>$VAR[Label_Andrew_ColorA]</label2>
+            <visible>Skin.HasSetting(Andrew.DualHighlight)</visible>
+            <onclick>SetProperty(ColorPicker_Type,Highlight,Home)</onclick>
+            <onclick>ActivateWindow(1111)</onclick>
+        </include>
+        <include content="Settings_Button" description="Colour B gradient">
+            <param name="dialog">false</param>
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">033</param>
+            <label> - $LOCALIZE[31629]</label>
+            <label2>$VAR[Label_Andrew_ColorB]</label2>
+            <visible>Skin.HasSetting(Andrew.DualHighlight)</visible>
+            <onclick>SetProperty(ColorPicker_Type,Gradient,Home)</onclick>
+            <onclick>ActivateWindow(1111)</onclick>
+        </include>
         <include content="Settings_Button" description="Customise Window Background">
             <param name="dialog">false</param>
             <param name="window">skinsettings</param>
@@ -185,6 +225,77 @@
             <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31331][/CAPITALIZE],Home)</onclick>
             <onclick>SetProperty(CustomDialogSettingsItems,DialogCustom_Settings_Items_BackgroundStyle,Home)</onclick>
             <onclick>ActivateWindow(1118)</onclick>
+        </include>
+        <include content="Settings_Label" description="Andrew extras fanart">
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">040</param>
+            <label>$LOCALIZE[31630]</label>
+        </include>
+        <include content="Settings_Button" description="Fanart extras helper missing">
+            <param name="dialog">false</param>
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">041</param>
+            <label>$LOCALIZE[31631]</label>
+            <label2>$LOCALIZE[31632]</label2>
+            <visible>!$EXP[Exp_Andrew_HelperReady]</visible>
+            <onclick condition="!System.HasAddon(plugin.video.themoviedb.helper.andrew)">InstallAddon(plugin.video.themoviedb.helper.andrew)</onclick>
+            <onclick condition="System.HasAddon(plugin.video.themoviedb.helper.andrew) + !System.AddonIsEnabled(plugin.video.themoviedb.helper.andrew)">EnableAddon(plugin.video.themoviedb.helper.andrew)</onclick>
+        </include>
+        <include content="Settings_Button" description="Fanart extras">
+            <param name="dialog">false</param>
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">042</param>
+            <param name="control">radiobutton</param>
+            <label>$LOCALIZE[31631]</label>
+            <label2>$VAR[Label_Andrew_FanartExtras]</label2>
+            <onclick>Skin.ToggleSetting(Background.ExtraFanart)</onclick>
+            <selected>Skin.HasSetting(Background.ExtraFanart)</selected>
+            <visible>$EXP[Exp_Andrew_HelperReady]</visible>
+        </include>
+        <include content="Settings_Button" description="Motion fanart">
+            <param name="dialog">false</param>
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">043</param>
+            <param name="control">radiobutton</param>
+            <label>$LOCALIZE[31633]</label>
+            <label2>$VAR[Label_Andrew_MotionFanart]</label2>
+            <onclick>Skin.ToggleSetting(TMDbHelper.EnableMotion)</onclick>
+            <selected>Skin.HasSetting(TMDbHelper.EnableMotion)</selected>
+            <visible>$EXP[Exp_Andrew_HelperReady]</visible>
+        </include>
+        <include content="Settings_Button" description="Portrait fanart letterbox">
+            <param name="dialog">false</param>
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">044</param>
+            <param name="control">radiobutton</param>
+            <label> - $LOCALIZE[31634]</label>
+            <onclick>Skin.Reset(Andrew.PortraitFrame)</onclick>
+            <selected>String.IsEmpty(Skin.String(Andrew.PortraitFrame)) | Skin.String(Andrew.PortraitFrame,letterbox)</selected>
+        </include>
+        <include content="Settings_Button" description="Portrait fanart zoom">
+            <param name="dialog">false</param>
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">045</param>
+            <param name="control">radiobutton</param>
+            <label> - $LOCALIZE[31635]</label>
+            <onclick>Skin.SetString(Andrew.PortraitFrame,zoom)</onclick>
+            <selected>Skin.String(Andrew.PortraitFrame,zoom)</selected>
+        </include>
+        <include content="Settings_Button" description="Portrait fanart focus">
+            <param name="dialog">false</param>
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">046</param>
+            <param name="control">radiobutton</param>
+            <label> - $LOCALIZE[31636]</label>
+            <onclick>Skin.SetString(Andrew.PortraitFrame,focus)</onclick>
+            <selected>Skin.String(Andrew.PortraitFrame,focus)</selected>
         </include>
         <include content="Settings_Button" description="Ratings">
             <param name="dialog">false</param>
@@ -429,17 +540,29 @@
             <onclick condition="Skin.HasSetting(Widgets.DisableNoResultsItem)">Skin.Reset(Widgets.DisableNoResultsItem)</onclick>
             <onclick condition="!Skin.HasSetting(Widgets.DisableNoResultsItem)">RunScript(script.skinvariables,run_dialog=yesno,"heading=$LOCALIZE[31519]","message=[B][COLOR=red][UPPERCASE]$LOCALIZE[14117][/UPPERCASE][/B][/COLOR] - $LOCALIZE[31522] $LOCALIZE[31524] $LOCALIZE[31523]",yeslabel=$LOCALIZE[31162],nolabel=$LOCALIZE[222],defaultbutton=10,"executebuiltin=Skin.SetBool(Widgets.DisableNoResultsItem)")</onclick>
         </include>
-        <include content="Settings_Button" description="Extra fanart">
+        <include content="Settings_Button" description="Fanart extras">
             <param name="dialog">false</param>
             <param name="window">skinsettings</param>
             <param name="baseid">$PARAM[baseid]</param>
             <param name="id">042</param>
             <param name="dialog">false</param>
             <param name="control">radiobutton</param>
-            <label>$LOCALIZE[31093]</label>
+            <label>$LOCALIZE[31631]</label>
+            <label2>$VAR[Label_Andrew_FanartExtras]</label2>
             <onclick>Skin.ToggleSetting(Background.ExtraFanart)</onclick>
             <selected>Skin.HasSetting(Background.ExtraFanart)</selected>
-            <visible>$EXP[Exp_TMDbHelper_IsBlur]</visible>
+            <visible>$EXP[Exp_Andrew_HelperReady]</visible>
+        </include>
+        <include content="Settings_Button" description="Fanart extras helper missing">
+            <param name="dialog">false</param>
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">043</param>
+            <label>$LOCALIZE[31631]</label>
+            <label2>$LOCALIZE[31632]</label2>
+            <visible>!$EXP[Exp_Andrew_HelperReady]</visible>
+            <onclick condition="!System.HasAddon(plugin.video.themoviedb.helper.andrew)">InstallAddon(plugin.video.themoviedb.helper.andrew)</onclick>
+            <onclick condition="System.HasAddon(plugin.video.themoviedb.helper.andrew) + !System.AddonIsEnabled(plugin.video.themoviedb.helper.andrew)">EnableAddon(plugin.video.themoviedb.helper.andrew)</onclick>
         </include>
 
         <include content="Settings_Label" description="Navigation">

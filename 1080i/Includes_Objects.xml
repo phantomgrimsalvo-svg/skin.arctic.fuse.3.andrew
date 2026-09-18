@@ -389,7 +389,17 @@
                 <nested />
                 <include content="Object_Control">
                     <param name="control">image</param>
+                    <aspectratio scalediffuse="false" align="center" aligny="$VAR[AlignY_ListItemArt]">keep</aspectratio>
+                    <visible>String.IsEqual(ListItem.Property(Andrew.ArtType),logo) | String.IsEqual(ListItem.Property(Andrew.ArtType),banner) | [String.IsEqual(ListItem.Property(Andrew.ArtAspect),portrait) + !Skin.String(Andrew.PortraitFrame,zoom) + !Skin.String(Andrew.PortraitFrame,focus)]</visible>
+                    <fadetime>$PARAM[fadetime]</fadetime>
+                    <bordersize>$PARAM[bordersize]</bordersize>
+                    <texture diffuse="$PARAM[diffuse]">$PARAM[icon]</texture>
+                    <visible>$PARAM[icon_visible]</visible>
+                </include>
+                <include content="Object_Control">
+                    <param name="control">image</param>
                     <aspectratio scalediffuse="false">$PARAM[aspectratio]</aspectratio>
+                    <visible>![String.IsEqual(ListItem.Property(Andrew.ArtType),logo) | String.IsEqual(ListItem.Property(Andrew.ArtType),banner) | [String.IsEqual(ListItem.Property(Andrew.ArtAspect),portrait) + !Skin.String(Andrew.PortraitFrame,zoom) + !Skin.String(Andrew.PortraitFrame,focus)]]</visible>
                     <fadetime>$PARAM[fadetime]</fadetime>
                     <bordersize>$PARAM[bordersize]</bordersize>
                     <texture diffuse="$PARAM[diffuse]">$PARAM[icon]</texture>
@@ -405,7 +415,14 @@
         <definition>
             <control type="image">
                 <texture background="true" diffuse="$PARAM[diffuse]">$PARAM[icon]</texture>
+                <aspectratio scalediffuse="false" align="center" aligny="$VAR[AlignY_ListItemArt]">keep</aspectratio>
+                <visible>String.IsEqual($PARAM[listitem].Property(Andrew.ArtType),logo) | String.IsEqual($PARAM[listitem].Property(Andrew.ArtType),banner) | [String.IsEqual($PARAM[listitem].Property(Andrew.ArtAspect),portrait) + !Skin.String(Andrew.PortraitFrame,zoom) + !Skin.String(Andrew.PortraitFrame,focus)]</visible>
+                <visible>![String.IsEqual($PARAM[listitem].Art(thumb),$PARAM[listitem].Icon) | String.IsEmpty($PARAM[listitem].Art(thumb))] | !String.IsEmpty($PARAM[listitem].Art(fanart)) | !String.IsEmpty($PARAM[listitem].Art(poster)) | !String.StartsWith($PARAM[listitem].Icon,Default)</visible>
+            </control>
+            <control type="image">
+                <texture background="true" diffuse="$PARAM[diffuse]">$PARAM[icon]</texture>
                 <aspectratio scalediffuse="false">$PARAM[aspectratio]</aspectratio>
+                <visible>![String.IsEqual($PARAM[listitem].Property(Andrew.ArtType),logo) | String.IsEqual($PARAM[listitem].Property(Andrew.ArtType),banner) | [String.IsEqual($PARAM[listitem].Property(Andrew.ArtAspect),portrait) + !Skin.String(Andrew.PortraitFrame,zoom) + !Skin.String(Andrew.PortraitFrame,focus)]]</visible>
                 <visible>![String.IsEqual($PARAM[listitem].Art(thumb),$PARAM[listitem].Icon) | String.IsEmpty($PARAM[listitem].Art(thumb))] | !String.IsEmpty($PARAM[listitem].Art(fanart)) | !String.IsEmpty($PARAM[listitem].Art(poster)) | !String.StartsWith($PARAM[listitem].Icon,Default)</visible>
             </control>
             <control type="image">
@@ -1886,6 +1903,10 @@
                     <include condition="$PARAM[shadow]">Object_Shadow_40</include>
                     <control type="image">
                         <include>Texture_SelectBox_Thin</include>
+                    </control>
+                    <control type="image">
+                        <visible>Skin.HasSetting(Andrew.DualHighlight)</visible>
+                        <texture border="20" colordiffuse="$VAR[ColorGradient]">common/gradient-v.png</texture>
                     </control>
                 </include>
                 <include content="Object_Indicator" condition="$PARAM[indicator]">

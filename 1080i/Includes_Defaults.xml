@@ -31,6 +31,7 @@
         <focusedcolor>$VAR[ColorSelected]</focusedcolor>
         <disabledcolor>main_fg_30</disabledcolor>
         <include>Texture_Button</include>
+        <include condition="Skin.HasSetting(Andrew.DualHighlight)">Texture_Button_DualBorder</include>
         <pulseonselect>false</pulseonselect>
         <include>Defs_ScrollSuffix</include>
     </default>
@@ -52,6 +53,7 @@
         <focusedcolor>$VAR[ColorSelected]</focusedcolor>
         <disabledcolor>main_fg_30</disabledcolor>
         <include>Texture_Button</include>
+        <include condition="Skin.HasSetting(Andrew.DualHighlight)">Texture_Button_DualBorder</include>
         <colorwidth>84</colorwidth>
         <colorheight>24</colorheight>
         <texturecolormask>buttons/colorpicker.png</texturecolormask>
@@ -70,6 +72,7 @@
         <focusedcolor>$VAR[ColorSelected]</focusedcolor>
         <disabledcolor>main_fg_30</disabledcolor>
         <include>Texture_Button</include>
+        <include condition="Skin.HasSetting(Andrew.DualHighlight)">Texture_Button_DualBorder</include>
         <pulseonselect>false</pulseonselect>
         <include>Defs_ScrollSuffix</include>
     </default>
@@ -95,6 +98,7 @@
         <focusedcolor>$VAR[ColorSelected]</focusedcolor>
         <disabledcolor>main_fg_30</disabledcolor>
         <include>Texture_Button</include>
+        <include condition="Skin.HasSetting(Andrew.DualHighlight)">Texture_Button_DualBorder</include>
         <pulseonselect>false</pulseonselect>
         <radiowidth>86</radiowidth>
         <radioheight>28</radioheight>
@@ -125,6 +129,7 @@
         <focusedcolor>$VAR[ColorSelected]</focusedcolor>
         <disabledcolor>main_fg_30</disabledcolor>
         <include>Texture_Button</include>
+        <include condition="Skin.HasSetting(Andrew.DualHighlight)">Texture_Button_DualBorder</include>
         <pulseonselect>false</pulseonselect>
         <textureup flipy="true" colordiffuse="main_soft">buttons/triangle-down.png</textureup>
         <texturedown colordiffuse="main_soft">buttons/triangle-down.png</texturedown>
@@ -146,6 +151,7 @@
         <focusedcolor>$VAR[ColorSelected]</focusedcolor>
         <disabledcolor>main_fg_30</disabledcolor>
         <include>Texture_Button</include>
+        <include condition="Skin.HasSetting(Andrew.DualHighlight)">Texture_Button_DualBorder</include>
         <pulseonselect>false</pulseonselect>
         <textureup flipy="true" colordiffuse="main_soft">buttons/triangle-down.png</textureup>
         <texturedown colordiffuse="main_soft">buttons/triangle-down.png</texturedown>
@@ -175,6 +181,7 @@
         <focusedcolor>$VAR[ColorSelected]</focusedcolor>
         <disabledcolor>main_fg_30</disabledcolor>
         <include>Texture_Button</include>
+        <include condition="Skin.HasSetting(Andrew.DualHighlight)">Texture_Button_DualBorder</include>
         <pulseonselect>false</pulseonselect>
         <sliderwidth>192</sliderwidth>
         <sliderheight>12</sliderheight>
@@ -194,6 +201,7 @@
         <focusedcolor>$VAR[ColorSelected]</focusedcolor>
         <disabledcolor>main_fg_30</disabledcolor>
         <include>Texture_Button</include>
+        <include condition="Skin.HasSetting(Andrew.DualHighlight)">Texture_Button_DualBorder</include>
         <pulseonselect>false</pulseonselect>
         <sliderwidth>120</sliderwidth>
         <sliderheight>12</sliderheight>
@@ -219,6 +227,7 @@
         <focusedcolor>$VAR[ColorSelected]</focusedcolor>
         <disabledcolor>main_fg_30</disabledcolor>
         <include>Texture_Button</include>
+        <include condition="Skin.HasSetting(Andrew.DualHighlight)">Texture_Button_DualBorder</include>
         <include>Texture_ToggleButton</include>
         <pulseonselect>false</pulseonselect>
         <include>Defs_ScrollSuffix</include>

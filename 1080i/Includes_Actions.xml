@@ -240,11 +240,11 @@
         </definition>
     </include>
     <include name="Action_Blur_Onload">
-        <include content="_Action_Blur_Onload" condition="!Skin.HasSetting(Background.ExtraFanart) + $EXP[Exp_TMDbHelper_IsBlur]">
-            <param name="sourceimage">Art(fanart)|Property(fanart)||EPGEventIcon||PicturePath</param>
+        <include content="_Action_Blur_Onload" condition="Skin.HasSetting(Background.ExtraFanart)">
+            <param name="sourceimage">Art(fanart1)|Art(extrafanart)|Art(fanart)|Art(thumb)|Art(tvshow.fanart{x})|Art(fanart{x})|Property(fanart)||EPGEventIcon||PicturePath</param>
         </include>
-        <include content="_Action_Blur_Onload" condition="Skin.HasSetting(Background.ExtraFanart) + $EXP[Exp_TMDbHelper_IsBlur]">
-            <param name="sourceimage">Art(tvshow.fanart{x})|Art(fanart{x})|Property(fanart)||EPGEventIcon||PicturePath</param>
+        <include content="_Action_Blur_Onload" condition="!Skin.HasSetting(Background.ExtraFanart) + $EXP[Exp_TMDbHelper_IsBlur]">
+            <param name="sourceimage">Art(fanart)|Art(thumb)|Property(fanart)||EPGEventIcon||PicturePath</param>
         </include>
 
         <onload condition="Skin.HasSetting(TMDbHelper.EnableData)">Skin.SetBool(TMDbHelper.Service)</onload>
@@ -265,6 +265,7 @@
 
     <variable name="Action_Update_Color">
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Highlight)">Skin.SetString(focuscolor.name,$VAR[Color_PC_to_Hex])</value>
+        <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Gradient)">Skin.SetString(gradientcolor,$VAR[Color_PC_to_Hex])</value>
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Indicator)">Skin.SetString(watchedprogresscolor.name,$INFO[ListItem.Label])</value>
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),series_premiere)">Skin.SetString(series_premiere_color.name,$INFO[ListItem.Label])</value>
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),season_premiere)">Skin.SetString(season_premiere_color.name,$INFO[ListItem.Label])</value>
@@ -276,6 +277,7 @@
 
     <variable name="Action_Update_Color_From_Slider">
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Highlight)">Skin.SetString(focuscolor.name,$VAR[Color_PC_to_Hex])</value>
+        <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Gradient)">Skin.SetString(gradientcolor,$VAR[Color_PC_to_Hex])</value>
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Indicator)">Skin.SetString(watchedprogresscolor.name,$VAR[Color_PC_to_Hex])</value>
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),series_premiere)">Skin.SetString(series_premiere_color.name,$VAR[Color_PC_to_Hex])</value>
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),season_premiere)">Skin.SetString(season_premiere_color.name,$VAR[Color_PC_to_Hex])</value>

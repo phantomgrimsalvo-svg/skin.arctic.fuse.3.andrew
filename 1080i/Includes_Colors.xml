@@ -19,6 +19,7 @@
     <variable name="ColorPickerHex">
         <value condition="Control.HasFocus(3000)">$INFO[Container(3000).ListItem.Label]</value>
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Highlight)">$VAR[ColorHighlight]</value>
+        <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Gradient)">$VAR[ColorGradient]</value>
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),Indicator)">$VAR[ColorWatchedProgress]</value>
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),series_premiere)">$VAR[ColorBanner_series_premiere]</value>
         <value condition="String.IsEqual(Window(Home).Property(ColorPicker_Type),season_premiere)">$VAR[ColorBanner_season_premiere]</value>
@@ -36,6 +37,7 @@
 
     <variable name="ColorGradient">
         <value condition="!String.IsEmpty(Skin.String(gradientcolor))">$INFO[Skin.String(gradientcolor)]</value>
+        <value condition="!String.IsEmpty(Skin.String(Andrew.GradientColor))">$INFO[Skin.String(Andrew.GradientColor)]</value>
         <value>$VAR[ColorHighlight]</value>
     </variable>
 

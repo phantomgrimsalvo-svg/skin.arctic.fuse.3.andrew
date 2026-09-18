@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog" id="1111">
     <defaultcontrol always="true">9002</defaultcontrol>
-    <onload>SetProperty(ColorPicker_Type,Highlight,Home)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(ColorPicker_Type))">SetProperty(ColorPicker_Type,Highlight,Home)</onload>
+    <onunload>ClearProperty(ColorPicker_Type,Home)</onunload>
     <controls>
         <include>DialogCustomColorPicker</include>
     </controls>
