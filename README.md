@@ -5,7 +5,8 @@ Personal Kodi skin fork for Andrew Webber. **Not** official Arctic Fuse.
 - Addon id: `skin.arctic.fuse.3.andrew` 3.3.2
 - Features: **Dual highlight colours** (Colour A → Colour B), **Fanart extras / motion**, mixed-aspect plugin art (site logos + portrait thumbs), **Pick items**, TMDbHelper.EnableMotion
 - Zip: [`artifacts/skin.arctic.fuse.3.andrew-3.3.2.zip`](artifacts/skin.arctic.fuse.3.andrew-3.3.2.zip)
-- Install: https://github.com/phantomgrimsalvo-svg/kodi-andrew-workshop/blob/main/INSTALL-KODI.md
+- Install zips (Release **v1.2.0**): https://github.com/phantomgrimsalvo-svg/skin.arctic.fuse.3.andrew/releases/tag/v1.2.0
+- Workshop notes: https://github.com/phantomgrimsalvo-svg/kodi-andrew-workshop/blob/main/INSTALL-KODI.md
 
 Skin settings: **Settings → Skin → Colour** for Dual highlight / Colour A / Colour B; **Fanart extras** for extra/motion fanart and portrait letterbox/zoom/focus.
 
