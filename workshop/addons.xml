@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="repository.andrew" name="Andrew's Kodi Workshop" version="1.1.0" provider-name="Andrew Webber">
+<addon id="repository.andrew" name="Andrew's Kodi Workshop" version="1.1.1" provider-name="Andrew Webber">
     <extension point="xbmc.addon.repository" name="Andrew's Kodi Workshop">
         <dir>
-            <info compressed="false">https://raw.githubusercontent.com/phantomgrimsalvo-svg/skin.arctic.fuse.3.andrew/cursor/af3-andrew-extras-f61e/workshop/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/phantomgrimsalvo-svg/skin.arctic.fuse.3.andrew/cursor/af3-andrew-extras-f61e/workshop/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/phantomgrimsalvo-svg/skin.arctic.fuse.3.andrew/cursor/af3-andrew-extras-f61e/workshop/zips/</datadir>
+            <info compressed="false">https://raw.githubusercontent.com/phantomgrimsalvo-svg/skin.arctic.fuse.3.andrew/main/workshop/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/phantomgrimsalvo-svg/skin.arctic.fuse.3.andrew/main/workshop/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/phantomgrimsalvo-svg/skin.arctic.fuse.3.andrew/main/workshop/zips/</datadir>
         </dir>
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/phantomgrimsalvo-svg/kodi-andrew-workshop/main/addons.xml</info>

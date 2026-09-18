@@ -21,7 +21,7 @@ Cumination is a **Video add-on**.
 ## Fast path: repository zip (Cumination + deps)
 
 1. Enable **System → Add-ons → Unknown sources**.
-2. Install **only** this zip: `repository.andrew-1.1.0.zip` (link below).
+2. Install **only** this zip: `repository.andrew-1.1.1.zip` (link below).
 3. **Add-ons → Install from repository → Andrew's Kodi Workshop → Video add-ons → Cumination (Andrew)**.
 4. Kodi pulls **stock** ResolveURL, resolveurl.xxx, six, kodi-six, requests, and the other Cumination requires from this same repository. You should not need to hunt those zips.
 
@@ -32,7 +32,7 @@ Then in Cumination (Andrew) settings turn on **Use thumbnail as fanart** and **A
 https://github.com/phantomgrimsalvo-svg/skin.arctic.fuse.3.andrew/releases/tag/v1.2.1
 
 1. Workshop repository (install this first for Cumination + deps)  
-   https://github.com/phantomgrimsalvo-svg/skin.arctic.fuse.3.andrew/releases/download/v1.2.1/repository.andrew-1.1.0.zip
+   https://github.com/phantomgrimsalvo-svg/skin.arctic.fuse.3.andrew/releases/download/v1.2.1/repository.andrew-1.1.1.zip
 2. Cumination (Andrew) 1.2.3 — only needed if you install from zip instead of from the repository  
    https://github.com/phantomgrimsalvo-svg/skin.arctic.fuse.3.andrew/releases/download/v1.2.1/plugin.video.cumination.andrew-1.2.3.zip
 3. Arctic Fuse 3 (Andrew) 3.3.2 — **optional** dual-colour / framing polish  
@@ -54,6 +54,7 @@ AF3 Andrew still needs jurialmunkey repo modules (`script.skinvariables`, `scrip
 
 | Add-on | Where | Id |
 |---|---|---|
+| Workshop repository | Add-ons → Install from zip, then from repository | `repository.andrew` 1.1.1 |
 | Cumination (Andrew) | Add-ons → Video add-ons | `plugin.video.cumination.andrew` 1.2.3 |
 | Arctic Fuse 3 (Andrew) (optional) | Settings → Interface → Skin | `skin.arctic.fuse.3.andrew` 3.3.2 |
 | TMDb Helper (Andrew) (optional) | Add-ons → Video add-ons | `plugin.video.themoviedb.helper.andrew` 6.18.0 |
